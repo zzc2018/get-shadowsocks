@@ -7,4 +7,13 @@
 
 ## 使用方法：
 
+1. 安装服务
+```python
 python get-ssserver.py
+```
+
+2. 启动服务
+
+```bash
+ssserver -c /etc/sss.json -d start
+```
