@@ -52,20 +52,22 @@ def get_shadowsocks():
 
 
 def write_json():
+    port = int(input("请输入端口: "))
+    passwd = str(input("请输入密码"))
     import requests
     ip = requests.get("http://2017.ip138.com/ic.asp").text
     ip = ip[ip.find("[") + 1 : ip.find("]")]
     text = """
     {
     "server":"%s",
-    "server_port":1314,
+    "server_port":%d,
     "local_address": "127.0.0.1",
     "local_port":1080,
-    "password":"zzc1314921",
+    "password":"%s",
     "timeout":300,
     "method":"aes-256-cfb"
     }
-    """ % ip
+    """ % (ip, port, passwd)
     g = open("/etc/sss.json", "w")
     g.write(text)
     g.close
