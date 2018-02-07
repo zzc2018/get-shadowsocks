@@ -1,30 +1,29 @@
 # coding: utf-8
-import sys
-import os
 import commands
 
 
 def environment():
     need_install = []
-    a = commands.getstatusoutput("pip --version")
-    if a[0] == 0:
-        print("pip 已经安装")
-    else:
-        print("pip 需要安装")
-        need_install.append("pip")
     b = commands.getstatusoutput("wget --version")
     if b[0] == 0:
         print("wget 已经安装")
     else:
         print("wget 需要安装")
         need_install.append("wget")
+    a = commands.getstatusoutput("pip --version")
+    if a[0] == 0:
+        print("pip 已经安装")
+    else:
+        print("pip 需要安装")
+        need_install.append("pip")
     h = commands.getstatusoutput("pip --version")
     if h[0] == 0:
         print("requests 已经安装")
     else:
         print("requests 需要安装")
         need_install.append("requests")
-    return(need_install)
+    return need_install
+
 
 def get_pip():
     c = commands.getstatusoutput("wget -P ./.get_shadowsocks http://zzc2018.cn/get-pip.py")
@@ -37,6 +36,7 @@ def get_pip():
         print("pip 安装成功")
     else:
         print("pip 安装失败")
+
 
 def get_shadowsocks():
     k = commands.getstatusoutput("ssserver --version")
@@ -80,12 +80,14 @@ def get_wget():
     else:
         print("wget 安装失败")
 
+
 def get_requests():
     j = commands.getstatusoutput("pip install requests")
     if j[0] == 0:
         print("requests 安装成功")
     else:
         print("requests 安装失败")
+
 
 def delete_dir():
     commands.getstatusoutput("rm -rf ./.get_shadowsocks")
@@ -114,4 +116,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    
