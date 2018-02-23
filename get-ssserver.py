@@ -26,7 +26,7 @@ def environment():
 
 
 def get_pip():
-    c = commands.getstatusoutput("wget -P ./.get_shadowsocks http://zzc2018.cn/get-pip.py")
+    c = commands.getstatusoutput("wget -P ./.get_shadowsocks https://bootstrap.pypa.io/get-pip.py")
     if c[0] == 0:
         pass
     else:
